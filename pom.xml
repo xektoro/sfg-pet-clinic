@@ -44,6 +44,9 @@
 					<!-- here we want only all maven steps to install to be performed -->
 					<goals>install</goals>
 					<!-- approve all different tags for the modules -->
+					<!-- not to have different versions on submodules - now the cmd does not prompt us to specify -->
+					<!-- SNAPSHOT version for the 2 submodules, but will inherit it from the parent -->
+					<!-- so we will not have different versions on submodules -->
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
 			</plugin>
