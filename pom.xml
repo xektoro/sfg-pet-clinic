@@ -43,6 +43,8 @@
 				<configuration>
 					<!-- here we want only all maven steps to install to be performed -->
 					<goals>install</goals>
+					<!-- approve all different tags for the modules -->
+					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
 			</plugin>
 		</plugins>
