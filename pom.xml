@@ -30,21 +30,27 @@
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies>
-
-
-
-
-
-	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<!-- we don't need to specify the version, it will be inherited by the pom version -->
+				<!-- here we configure the plugin -->
+				<configuration>
+					<!-- here we want only all maven steps to install to be performed -->
+					<goals>install</goals>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/xektoro/sfg-pet-clinic.git</developerConnection>
+	</scm>
 
 </project>
