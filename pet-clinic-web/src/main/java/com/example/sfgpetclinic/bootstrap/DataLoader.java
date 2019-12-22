@@ -4,8 +4,6 @@ import com.example.sfgpetclinic.model.Owner;
 import com.example.sfgpetclinic.model.Vet;
 import com.example.sfgpetclinic.services.OwnerService;
 import com.example.sfgpetclinic.services.VetService;
-import com.example.sfgpetclinic.services.map.OwnerMapService;
-import com.example.sfgpetclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +18,11 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+    // Before Spring 4.2 I had to annotate the Constructor injection with '@Autowired'
+    // but now it is not needed
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
