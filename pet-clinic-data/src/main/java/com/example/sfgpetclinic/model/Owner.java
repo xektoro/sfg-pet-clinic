@@ -1,13 +1,25 @@
 package com.example.sfgpetclinic.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name = "owners") // how to name the db table
 public class Owner extends Person {
 
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "telephone")
     private String telephone;
+
+    // now if we delete an owner, also his pets are going to be deleted
+    // mappedBy = "owner" specifies the field property from the other side of the relationship
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>(); // to avoid NPE
 
     public String getAddress() {
