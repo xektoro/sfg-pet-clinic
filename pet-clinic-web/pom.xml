@@ -124,15 +124,9 @@
             <!-- Maven Surefire plugin, we get it by default from Maven -->
             <!-- not sure if we actually needed it!!! -->
             <plugin>
+                <!-- Maven Surefire Plugin is in Maven by default -->
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.junit.platform</groupId>
-                        <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>RELEASE</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
