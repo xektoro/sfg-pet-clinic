@@ -42,4 +42,5 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests! (all tests - unit tests and integration tests)
-      - run: mvn integration-test
+      - # install - tells Maven to install to the local directory (into the local .m2)
+      - run: mvn install
