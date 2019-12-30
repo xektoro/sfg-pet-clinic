@@ -61,6 +61,9 @@
             </plugin>
             <!-- that plugin is for the proper execution of tests -->
             <!-- not sure if we actually needed it!!! -->
+
+            <!-- if we don't include this plugin, we may be on a previous release of the Maven Surefire Plugin
+            that does not have the JUnit support, so it is good to include it!!-->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
