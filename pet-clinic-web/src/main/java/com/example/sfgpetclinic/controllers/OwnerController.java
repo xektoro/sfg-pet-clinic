@@ -54,6 +54,7 @@ public class OwnerController {
         }
 
         // find owners by last name
+        // it is doing a SQL search with like clause, so we need a wild-card character in SQL
         List<Owner> results = ownerService.findAllByLastNameLike("%"+ owner.getLastName() + "%");
 
         if (results.isEmpty()) {
