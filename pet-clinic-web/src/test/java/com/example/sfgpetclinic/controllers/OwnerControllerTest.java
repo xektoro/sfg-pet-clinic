@@ -14,7 +14,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -76,5 +77,18 @@ class OwnerControllerTest {
 
         // findOwners should not be interacting with ownerService
         verifyNoInteractions(ownerService);
+    }
+
+    @Test
+    void displayOwners() throws Exception {
+        // setting up Mockito to return back an Owner object
+        when(ownerService.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(get("/owners/123"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/ownerDetails"))
+                // "mav.addObject(ownerService.findById(ownerId));" this tow has added it as model name "owner"
+                // and that owner has a property id with value 1
+                .andExpect(model().attribute("owner", hasProperty("id", is(1L))));
     }
 }
