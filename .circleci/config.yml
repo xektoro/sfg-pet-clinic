@@ -10,7 +10,13 @@ jobs:
       # specify the version you desire here
       # a build is gonna run inside of a Docker container and we are going to
       # utilize the Circle CI Open JDK 8 (so this is setting up the JDK 8)
-      - image: circleci/openjdk:8-jdk
+      # that is built into the Circle CI build image, it has all the build tools
+      # (open JDK8, Maven, Gradle,...) and everything we need for Java Build
+      # that is the image for Java 8
+      # - image: circleci/openjdk:8-jdk
+
+      # that is the image for Java 11
+      - image: circleci/openjdk:11-browsers-legacy
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
