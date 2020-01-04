@@ -12,6 +12,8 @@ jobs:
       # utilize the Circle CI Open JDK 8 (so this is setting up the JDK 8)
       # that is built into the Circle CI build image, it has all the build tools
       # (open JDK8, Maven, Gradle,...) and everything we need for Java Build
+      # this is controlling the base image that Cirle CI is going to use to do our CI builds
+      # so Circle CI is going to check things out, run them inside of a Docker Container with specific version of Java
       # that is the image for Java 8
       # - image: circleci/openjdk:8-jdk
 
