@@ -25,6 +25,8 @@ public class VisitController {
         this.petService = petService;
     }
 
+    // it will be for all requests coming to the VisitController (any LocalDate property is going to be handled here)
+    // it will handle all the LocalDate types in that controller
     @InitBinder
     public void dataBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
